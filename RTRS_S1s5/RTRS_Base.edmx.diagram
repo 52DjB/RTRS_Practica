@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9be73180ac6343b9a1992f3d9872e5aa" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="RTRS_BaseModel.Computer" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.CPU_Table" Width="1.5" PointX="7.5" PointY="12.875" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.DataStoreTable" Width="1.5" PointX="7.5" PointY="16.25" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.Domen" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.Motherboard_Table" Width="1.5" PointX="7.5" PointY="19.375" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.NIC_Table" Width="1.5" PointX="7.5" PointY="6.5" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.Organization" Width="1.5" PointX="3" PointY="15.375" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.PC_OS" Width="1.5" PointX="3" PointY="13" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.PC_Type" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.RAM_Table" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.Stock" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.StockType" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.VC_Label" Width="1.5" PointX="8.25" PointY="10" />
+        <EntityTypeShape EntityType="RTRS_BaseModel.VideoCardTable" Width="1.5" PointX="10.5" PointY="9.5" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_CPU_Table" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_DataStoreTable" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_Domen" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_Motherboard" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_NIC_Table" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_Organization" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_PC_OS" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_PC_Type1" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_RAM_Table" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_Stock" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Computer_VideoCardTable" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_CPU_Table_Computer" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_DataStoreTable_Computer" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Motherboard_Table_Computer" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_NIC_Table_Computer" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_RAM_Table_Computer" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_VideoCardTable_Computer" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_Stock_StockType" />
+        <AssociationConnector Association="RTRS_BaseModel.FK_VideoCardTable_VC_Label" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

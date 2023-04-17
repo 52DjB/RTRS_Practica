@@ -1,0 +1,145 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RTRS_S1s5"
+        xmlns:materialDesignMahApps="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RTRS_S1s5.BasicElement"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        Title="BasicElement">
+    <Grid>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="2.5">
+                <StackPanel Margin="2.55">
+                    <TextBlock Text="IP:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding IP_adress}" Width="200" Margin="0"/>
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="MAC:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding MAC_adress}" Width="200" Margin="0"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
+                <StackPanel Margin="2.5" Name="SP_Type">
+                    <TextBlock Text="Название CPU:" MinWidth="200" Width="Auto" Margin="5"/>
+                    <!--<TextBox Name="CbCPU_Type" Text="{Binding CPU_Table.CPU_Type}" MinWidth="200" Width="Auto" Margin="0"/>-->
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="Количество Процессоров:" Width="Auto" Margin="2.5"/>
+                    <StackPanel Name="SP_Num" Orientation="Horizontal" Margin="2.5">
+                        <TextBox Name="TbNumProc" Text="{Binding CPU_Table.Num_Proc}" Width="50" Margin="2.5"/>
+                        <TextBlock Text="Шт." Width="Auto" Margin="2.5"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Количество Ядер:" Width="Auto" Margin="5"/>
+                    <StackPanel Name="SP_Cor" Orientation="Vertical">
+                        <!--<TextBox Name="TbNumCores" Text="{Binding CPU_Table.Num_Cores}" Width="50" Margin="0"/>-->
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Частота MHz:" Width="Auto" Margin="5"/>
+                    <StackPanel Name="SP_MHz" Orientation="Vertical">
+                        <!--<TextBox Name="TbMHz" Text="{Binding CPU_Table.MHz}" Width="50" Margin="0"/>-->
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
+                <StackPanel>
+                    <TextBlock Text="Оперативная Память:" MinWidth="200" Width="Auto" Margin="5"/>
+                    <StackPanel Name="SP_Mb" Orientation="Vertical">
+                        <!--<TextBox Text="{Binding RAM_Table.RAM_Memory_MBytes}" Width="130" Margin="0"/>-->
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Количество модулей ОП:" Width="Auto" Margin="2.5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding RUM_Num}" MinWidth="50" Margin="5"/>
+                        <TextBlock Text="Шт." Width="Auto" Margin="2.5,15,2.5,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Частота ОП:" MinWidth="50" Width="Auto" Margin="5"/>
+                    <StackPanel Name="SP_Freq" Orientation="Vertical">
+                        <!--<TextBox Text="{Binding RAM_Table.RAM_Frequency}" Width="50" Margin="0"/>-->
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Объем ОП:" MinWidth="50" Width="Auto" Margin="5"/>
+                    <StackPanel Name="SP_Amount" Orientation="Vertical">
+                        <!--<TextBox Text="{Binding RAM_Table.RAM_Amount}" Width="50" Margin="0"/>-->
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
+                <StackPanel x:Name="SP_Nic">
+                    <TextBlock Text="Модель Сетевой карты:" MinWidth="200" Width="Auto" Margin="2.5"/>
+                    <!--<TextBox Text="{Binding NIC_Table.NIC_Model}" x:Name="TxNic1" MinWidth="200" Width="Auto" Margin="0"/>-->
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Количество Сетевых карт:" Width="Auto" Margin="2.5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding NIC_Table.NICNum}" MinWidth="50" Margin="5"/>
+                        <TextBlock Text="Шт." Width="Auto" Margin="0,15,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:Name="SP_Bul">
+                    <TextBlock Text="Встроенная\Дискретная:" MinWidth="200" Width="Auto" Margin="2.5"/>
+                    <!--<TextBox Text="{Binding NIC_Table.Built_in}" x:Name="ComboBoxBI" MinWidth="100" Margin="0"/>-->
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
+                <StackPanel Name="SP_DName">
+                    <TextBlock Text="Модель Диска:" MinWidth="200" Width="Auto" Margin="5"/>
+                    <!--<TextBox Text="{Binding DataStoreTable.DSName}" MinWidth="200" Width="Auto" Margin="2.5"/>-->
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Количество Жестких Дисков:" Width="Auto" Margin="2.5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding DataStore_Num}" MinWidth="50" Margin="5"/>
+                        <TextBlock Text="Шт." Width="Auto" Margin="2.5,15,2.5,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Name="SP_DMemory" MinWidth="50" Orientation="Vertical">
+                    <TextBlock Text="Память:" Width="Auto" Margin="5"/>
+                    <!--<TextBox Text="{Binding DataStoreTable.Memory}" MinWidth="50" Width="Auto" Margin="2.5"/>-->
+                </StackPanel>
+                <StackPanel Name="SP_DType">
+                    <TextBlock Text="Тип:" MinWidth="50" Width="Auto" Margin="5"/>
+                    <!--<ComboBox Name="CbType" SelectedItem="{Binding DataStoreTable.DataStoreType}" DisplayMemberPath="DSName" Width="Auto" Margin="2.5"/>-->
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="10">
+                <StackPanel x:Name="SP_Mather">
+                    <TextBlock Text="Производитель Мат.Плат:" MinWidth="200" Width="Auto" Margin="5"/>
+                    <!--<TextBox Name="TB_VCProiz" Text="{Binding Motherboard_Table.Mother_Producer}" MinWidth="200" Width="Auto" Margin="2.5"/>-->
+                </StackPanel>
+                <StackPanel x:Name="SP_Mather2">
+                    <TextBlock Text="Модель:" MinWidth="200" Width="Auto" Margin="5"/>
+                    <!--<TextBox Name="TB_VCModel" Text="{Binding Motherboard_Table.Mother_Model}" MinWidth="200" Width="Auto" Margin="2.5"/>-->
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="10">
+                <StackPanel>
+                    <TextBlock Text="Видеокарта:" Width="Auto" Margin="5"/>
+                    <TextBox Text="{Binding VideoCardTable.VCModel}" MinWidth="200" Width="Auto" Margin="2.5"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Память:" Width="Auto" Margin="5"/>
+                    <TextBox Text="{Binding VideoCardTable.VCMemory}" MinWidth="200" Width="Auto" Margin="2.5"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Встроенная\Дискретная:" Width="Auto" Margin="5"/>
+                    <ComboBox Name="CbVC" SelectedItem="{Binding VideoCardTable.VC_Label}" DisplayMemberPath="VCLabe" MinWidth="200" Width="Auto" Margin="2.5"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="10">
+                <Button Content="Редактировать" Width="Auto" Click="Redact_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
+
+                    
+           

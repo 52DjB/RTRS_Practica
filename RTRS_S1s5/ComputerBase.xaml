@@ -1,0 +1,61 @@
+﻿<Window x:Class="RTRS_S1s5.ComputerBase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RTRS_S1s5"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        WindowState="Maximized"
+        Title="ComputerBase">
+    <Grid>
+        <DataGrid x:Name="CmList" AutoGenerateColumns="False" Margin="0,50,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Инвентарный номер" Width="Auto"
+                                    Binding="{Binding Inventory_number}"/>
+                <DataGridTextColumn Header="Место установки" Width="Auto"
+                                    Binding="{Binding Location}"/>
+                <DataGridTextColumn Header="Название ПК" Width="Auto"
+                                    Binding="{Binding PC_Name}"/>
+                <DataGridTextColumn Header="Тип ПК" Width="Auto"
+                                    Binding="{Binding PC_Type.Name}"/>
+                <DataGridTextColumn Header="Отв.Лицо" Width="Auto"
+                                    Binding="{Binding OPerson}"/>
+                <DataGridTextColumn Header="Домен" Width="Auto"
+                                    Binding="{Binding Domen.Name}"/>
+                <DataGridTextColumn Header="ОС" Width="Auto"
+                                    Binding="{Binding PC_OS.Name}"/>
+                <DataGridTextColumn Header="Коментарий" Width="Auto"
+                                    Binding="{Binding Commentary}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Дополнительно" Click="Basic_Click" Width="Auto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Click="Redact_Click" Width="Auto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Content="Добавить" Height="30" Width="100" MaxHeight="60" MaxWidth="350" Margin="5"
+                    Click="Dob_Click"/>
+            <Button Content="Удалить" Height="30" Width="100" MaxHeight="60" MaxWidth="350" Margin="5"
+                    Click="Delete_Click"/>
+            <Button Content="Обновить" Height="30" Width="100" MaxHeight="60" MaxWidth="350" Margin="5"
+                    Click="Up_Click"/>
+            <Button Content="Назад" Height="30" Width="100" MaxHeight="60" MaxWidth="350" Margin="5"
+                    Click="Back_Click"/>
+            <TextBox Name="TbSearch" TextWrapping="Wrap" Width="200" MaxWidth="300" Margin="5" TextChanged="TbSearch_TextChanged"/>
+            <ComboBox SelectedItem="{Binding PC_OS}" DisplayMemberPath="Name" 
+                x:Name="CmbOs" Width="200" Margin="5" SelectionChanged="CmbOs_SelectionChanged"/>
+            <TextBox Name="TbSearchPerson" TextWrapping="Wrap" Width="200" MaxWidth="300" Margin="5" TextChanged="TbSearchP_TextChanged"/>
+        </StackPanel>
+    </Grid>
+</Window>

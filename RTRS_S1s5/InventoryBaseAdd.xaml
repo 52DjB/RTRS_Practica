@@ -1,0 +1,44 @@
+﻿<Window x:Class="RTRS_S1s5.InventoryBaseAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RTRS_S1s5"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        Title="InventoryBaseAdd">
+    <Grid>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="2.5">
+                <StackPanel Margin="2.5">
+                    <TextBox Text="Тип" MinWidth="100" Margin="2.5"/>
+                    <ComboBox x:Name="CbStock" ItemsSource="{Binding Stock.StockType}" DisplayMemberPath="StName" Margin="0"/>
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="Инвентарный номер:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding Inventory_number}" Width="200" Margin="0"/>
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="Ответсвенное Лицо:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding OPerson}" Width="200" Margin="0"/>
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="Место установки:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding Location}" Width="200" Margin="0"/>
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="ModDiagonal:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding Model}" Width="200" Margin="0"/>
+                </StackPanel>
+                <StackPanel Margin="2.5">
+                    <TextBlock Text="Commentary:" Width="Auto" Margin="2.5"/>
+                    <TextBox Text="{Binding Commentary}" Width="200" Margin="0"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="10">
+                <Button Content="Сохранить" Width="Auto" Click="Save_Click"/>
+                <Button Content="Назад" Margin="5" Click="Back_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

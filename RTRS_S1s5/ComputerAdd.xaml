@@ -1,0 +1,49 @@
+﻿<Window x:Class="RTRS_S1s5.ComputerAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RTRS_S1s5"
+        mc:Ignorable="d"
+        Title="ComputerAdd" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="Auto" Width="Auto">
+                    <Label Height="24" Content="Инв. Номер:"/>
+                    <Label Height="24" Content="Место установки:"/>
+                    <Label Height="24" Content="IP:"/>
+                    <Label Height="24" Content="MAC:"/>
+                    <Label Height="24" Content="OS:"/>
+                    <Label Height="24" Content="Организация:"/>
+                    <Label Height="24" Content="Домен:"/>
+                    <Label Height="24" Content="Название ПК:"/>
+                    <Label Height="24" Content="Тип ПК:"/>
+                    <Label Height="24" Content="Склад:"/>
+                    <Label Height="24" Content="Отв.Лицо:"/>
+                    <Label Height="24" Content="Коментарий:"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Height="Auto" Width="200">
+                    <TextBox Height="24" Text="{Binding Inventory_number}"/>
+                    <TextBox Height="24" Text="{Binding Location}"/>
+                    <TextBox Height="24" Text="{Binding IP_adress}"/>
+                    <TextBox Height="24" Text="{Binding MAC_adress}"/>
+                    <ComboBox Height="24" x:Name="CbOs" SelectedItem="{Binding PC_OS}" DisplayMemberPath="Name"/>
+                    <ComboBox Height="24" x:Name="CbOrg" SelectedItem="{Binding Organization}" DisplayMemberPath="Name"/>
+                    <ComboBox Height="24" x:Name="CbDomen" SelectedItem="{Binding Domen}" DisplayMemberPath="Name"/>
+                    <TextBox Height="24" Text="{Binding PC_Name}"/>
+                    <ComboBox Height="24" Name="CbType" SelectedItem="{Binding PC_Type}" DisplayMemberPath="Name"/>
+                    <TextBox Height="24" Text="{Binding Stock}"/>
+                    <TextBox Height="24" Text="{Binding OPerson}"/>
+                    <TextBox Height="24" Width="Auto" Text="{Binding Commentary}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="10" Width="200">
+                <Button Content="Сохранить" Margin="5"
+                        Click="Save_Click"/>
+                <Button Content="Назад" Margin="5"
+                        Click="Back_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

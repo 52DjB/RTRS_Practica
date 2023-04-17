@@ -1,0 +1,1186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище RTRS_BaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Computer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="IP_adress" Type="nvarchar(max)" />
+          <Property Name="MAC_adress" Type="nvarchar(max)" />
+          <Property Name="idOS" Type="int" />
+          <Property Name="idOrganization" Type="int" />
+          <Property Name="idDomen" Type="int" />
+          <Property Name="PC_Name" Type="nvarchar(max)" />
+          <Property Name="Device_Type" Type="int" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="OPerson" Type="nvarchar(max)" />
+          <Property Name="CPU" Type="int" />
+          <Property Name="RAM" Type="int" />
+          <Property Name="RUM_Num" Type="nchar" MaxLength="10" />
+          <Property Name="NIC" Type="int" />
+          <Property Name="Motherboard" Type="int" />
+          <Property Name="DataStore" Type="int" />
+          <Property Name="DataStore_Num" Type="nchar" MaxLength="10" />
+          <Property Name="VideoCard" Type="int" />
+          <Property Name="Commentary" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CPU_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CPU_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_Proc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_Cores" Type="nvarchar" MaxLength="50" />
+          <Property Name="MHz" Type="char" MaxLength="20" />
+          <Property Name="ComputerID" Type="int" />
+        </EntityType>
+        <EntityType Name="DataStoreTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DSName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Memory" Type="varchar(max)" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="ComputerID" Type="int" />
+        </EntityType>
+        <EntityType Name="Domen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Motherboard_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mother_Producer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mother_Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComputerID" Type="int" />
+        </EntityType>
+        <EntityType Name="NIC_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NIC_Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="NICNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Built_in" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComputerID" Type="int" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PC_OS">
+          <Key>
+            <PropertyRef Name="idOs" />
+          </Key>
+          <Property Name="idOs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PC_Type">
+          <Key>
+            <PropertyRef Name="int" />
+          </Key>
+          <Property Name="int" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RAM_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RAM_Memory_MBytes" Type="nvarchar" MaxLength="50" />
+          <Property Name="RAM_Frequency" Type="nvarchar" MaxLength="50" />
+          <Property Name="RAM_Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComputerID" Type="int" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="idStock" />
+          </Key>
+          <Property Name="idStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeStock" Type="int" />
+          <Property Name="Inventory_number" Type="nvarchar" MaxLength="50" />
+          <Property Name="OPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Commentary" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StockType">
+          <Key>
+            <PropertyRef Name="idSType" />
+          </Key>
+          <Property Name="idSType" Type="int" Nullable="false" />
+          <Property Name="StName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VC_Label">
+          <Key>
+            <PropertyRef Name="VCid" />
+          </Key>
+          <Property Name="VCid" Type="int" Nullable="false" />
+          <Property Name="VCLabe" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VideoCardTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VCModel" Type="nvarchar(max)" />
+          <Property Name="Label" Type="int" />
+          <Property Name="VCMemory" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComputerID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Computer_CPU_Table">
+          <End Role="CPU_Table" Type="Self.CPU_Table" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_DataStoreTable">
+          <End Role="DataStoreTable" Type="Self.DataStoreTable" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataStoreTable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="DataStore" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Domen">
+          <End Role="Domen" Type="Self.Domen" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Domen">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="idDomen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Motherboard">
+          <End Role="Motherboard_Table" Type="Self.Motherboard_Table" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboard_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="Motherboard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_NIC_Table">
+          <End Role="NIC_Table" Type="Self.NIC_Table" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIC_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="idOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_PC_OS">
+          <End Role="PC_OS" Type="Self.PC_OS" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PC_OS">
+              <PropertyRef Name="idOs" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="idOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_PC_Type1">
+          <End Role="PC_Type" Type="Self.PC_Type" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PC_Type">
+              <PropertyRef Name="int" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="Device_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM_Table">
+          <End Role="RAM_Table" Type="Self.RAM_Table" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Stock">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="idStock" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="Stock" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_VideoCardTable">
+          <End Role="VideoCardTable" Type="Self.VideoCardTable" Multiplicity="0..1" />
+          <End Role="Computer" Type="Self.Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoCardTable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="VideoCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPU_Table_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="0..1" />
+          <End Role="CPU_Table" Type="Self.CPU_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CPU_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataStoreTable_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="0..1" />
+          <End Role="DataStoreTable" Type="Self.DataStoreTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DataStoreTable">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motherboard_Table_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="0..1" />
+          <End Role="Motherboard_Table" Type="Self.Motherboard_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Motherboard_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NIC_Table_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="0..1" />
+          <End Role="NIC_Table" Type="Self.NIC_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NIC_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM_Table_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="0..1" />
+          <End Role="RAM_Table" Type="Self.RAM_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RAM_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_StockType">
+          <End Role="StockType" Type="Self.StockType" Multiplicity="0..1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockType">
+              <PropertyRef Name="idSType" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="TypeStock" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoCardTable_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="0..1" />
+          <End Role="VideoCardTable" Type="Self.VideoCardTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VideoCardTable">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoCardTable_VC_Label">
+          <End Role="VC_Label" Type="Self.VC_Label" Multiplicity="0..1" />
+          <End Role="VideoCardTable" Type="Self.VideoCardTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VC_Label">
+              <PropertyRef Name="VCid" />
+            </Principal>
+            <Dependent Role="VideoCardTable">
+              <PropertyRef Name="Label" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище RTRS_BaseModelContainer">
+          <EntitySet Name="Computer" EntityType="Self.Computer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CPU_Table" EntityType="Self.CPU_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataStoreTable" EntityType="Self.DataStoreTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Domen" EntityType="Self.Domen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motherboard_Table" EntityType="Self.Motherboard_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NIC_Table" EntityType="Self.NIC_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PC_OS" EntityType="Self.PC_OS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PC_Type" EntityType="Self.PC_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM_Table" EntityType="Self.RAM_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockType" EntityType="Self.StockType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VC_Label" EntityType="Self.VC_Label" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoCardTable" EntityType="Self.VideoCardTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Computer_CPU_Table" Association="Self.FK_Computer_CPU_Table">
+            <End Role="CPU_Table" EntitySet="CPU_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_DataStoreTable" Association="Self.FK_Computer_DataStoreTable">
+            <End Role="DataStoreTable" EntitySet="DataStoreTable" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Domen" Association="Self.FK_Computer_Domen">
+            <End Role="Domen" EntitySet="Domen" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Motherboard" Association="Self.FK_Computer_Motherboard">
+            <End Role="Motherboard_Table" EntitySet="Motherboard_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_NIC_Table" Association="Self.FK_Computer_NIC_Table">
+            <End Role="NIC_Table" EntitySet="NIC_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Organization" Association="Self.FK_Computer_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_PC_OS" Association="Self.FK_Computer_PC_OS">
+            <End Role="PC_OS" EntitySet="PC_OS" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_PC_Type1" Association="Self.FK_Computer_PC_Type1">
+            <End Role="PC_Type" EntitySet="PC_Type" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM_Table" Association="Self.FK_Computer_RAM_Table">
+            <End Role="RAM_Table" EntitySet="RAM_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Stock" Association="Self.FK_Computer_Stock">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_VideoCardTable" Association="Self.FK_Computer_VideoCardTable">
+            <End Role="VideoCardTable" EntitySet="VideoCardTable" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPU_Table_Computer" Association="Self.FK_CPU_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="CPU_Table" EntitySet="CPU_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataStoreTable_Computer" Association="Self.FK_DataStoreTable_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="DataStoreTable" EntitySet="DataStoreTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motherboard_Table_Computer" Association="Self.FK_Motherboard_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="Motherboard_Table" EntitySet="Motherboard_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NIC_Table_Computer" Association="Self.FK_NIC_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="NIC_Table" EntitySet="NIC_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM_Table_Computer" Association="Self.FK_RAM_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="RAM_Table" EntitySet="RAM_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_StockType" Association="Self.FK_Stock_StockType">
+            <End Role="StockType" EntitySet="StockType" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoCardTable_Computer" Association="Self.FK_VideoCardTable_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="VideoCardTable" EntitySet="VideoCardTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoCardTable_VC_Label" Association="Self.FK_VideoCardTable_VC_Label">
+            <End Role="VC_Label" EntitySet="VC_Label" />
+            <End Role="VideoCardTable" EntitySet="VideoCardTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RTRS_BaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RTRS_BaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Computer" EntityType="RTRS_BaseModel.Computer" />
+          <EntitySet Name="CPU_Table" EntityType="RTRS_BaseModel.CPU_Table" />
+          <EntitySet Name="DataStoreTable" EntityType="RTRS_BaseModel.DataStoreTable" />
+          <EntitySet Name="Domen" EntityType="RTRS_BaseModel.Domen" />
+          <EntitySet Name="Motherboard_Table" EntityType="RTRS_BaseModel.Motherboard_Table" />
+          <EntitySet Name="NIC_Table" EntityType="RTRS_BaseModel.NIC_Table" />
+          <EntitySet Name="Organization" EntityType="RTRS_BaseModel.Organization" />
+          <EntitySet Name="PC_OS" EntityType="RTRS_BaseModel.PC_OS" />
+          <EntitySet Name="PC_Type" EntityType="RTRS_BaseModel.PC_Type" />
+          <EntitySet Name="RAM_Table" EntityType="RTRS_BaseModel.RAM_Table" />
+          <EntitySet Name="Stock" EntityType="RTRS_BaseModel.Stock" />
+          <EntitySet Name="StockType" EntityType="RTRS_BaseModel.StockType" />
+          <EntitySet Name="sysdiagrams" EntityType="RTRS_BaseModel.sysdiagrams" />
+          <EntitySet Name="VC_Label" EntityType="RTRS_BaseModel.VC_Label" />
+          <EntitySet Name="VideoCardTable" EntityType="RTRS_BaseModel.VideoCardTable" />
+          <AssociationSet Name="FK_Computer_CPU_Table" Association="RTRS_BaseModel.FK_Computer_CPU_Table">
+            <End Role="CPU_Table" EntitySet="CPU_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_DataStoreTable" Association="RTRS_BaseModel.FK_Computer_DataStoreTable">
+            <End Role="DataStoreTable" EntitySet="DataStoreTable" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Domen" Association="RTRS_BaseModel.FK_Computer_Domen">
+            <End Role="Domen" EntitySet="Domen" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Motherboard" Association="RTRS_BaseModel.FK_Computer_Motherboard">
+            <End Role="Motherboard_Table" EntitySet="Motherboard_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_NIC_Table" Association="RTRS_BaseModel.FK_Computer_NIC_Table">
+            <End Role="NIC_Table" EntitySet="NIC_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Organization" Association="RTRS_BaseModel.FK_Computer_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_PC_OS" Association="RTRS_BaseModel.FK_Computer_PC_OS">
+            <End Role="PC_OS" EntitySet="PC_OS" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_PC_Type1" Association="RTRS_BaseModel.FK_Computer_PC_Type1">
+            <End Role="PC_Type" EntitySet="PC_Type" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_RAM_Table" Association="RTRS_BaseModel.FK_Computer_RAM_Table">
+            <End Role="RAM_Table" EntitySet="RAM_Table" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_Stock" Association="RTRS_BaseModel.FK_Computer_Stock">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computer_VideoCardTable" Association="RTRS_BaseModel.FK_Computer_VideoCardTable">
+            <End Role="VideoCardTable" EntitySet="VideoCardTable" />
+            <End Role="Computer" EntitySet="Computer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CPU_Table_Computer" Association="RTRS_BaseModel.FK_CPU_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="CPU_Table" EntitySet="CPU_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataStoreTable_Computer" Association="RTRS_BaseModel.FK_DataStoreTable_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="DataStoreTable" EntitySet="DataStoreTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motherboard_Table_Computer" Association="RTRS_BaseModel.FK_Motherboard_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="Motherboard_Table" EntitySet="Motherboard_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NIC_Table_Computer" Association="RTRS_BaseModel.FK_NIC_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="NIC_Table" EntitySet="NIC_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM_Table_Computer" Association="RTRS_BaseModel.FK_RAM_Table_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="RAM_Table" EntitySet="RAM_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoCardTable_Computer" Association="RTRS_BaseModel.FK_VideoCardTable_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="VideoCardTable" EntitySet="VideoCardTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_StockType" Association="RTRS_BaseModel.FK_Stock_StockType">
+            <End Role="StockType" EntitySet="StockType" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoCardTable_VC_Label" Association="RTRS_BaseModel.FK_VideoCardTable_VC_Label">
+            <End Role="VC_Label" EntitySet="VC_Label" />
+            <End Role="VideoCardTable" EntitySet="VideoCardTable" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Computer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IP_adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MAC_adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idOS" Type="Int32" />
+          <Property Name="idOrganization" Type="Int32" />
+          <Property Name="idDomen" Type="Int32" />
+          <Property Name="PC_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Device_Type" Type="Int32" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="OPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CPU" Type="Int32" />
+          <Property Name="RAM" Type="Int32" />
+          <Property Name="RUM_Num" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NIC" Type="Int32" />
+          <Property Name="Motherboard" Type="Int32" />
+          <Property Name="DataStore" Type="Int32" />
+          <Property Name="DataStore_Num" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VideoCard" Type="Int32" />
+          <Property Name="Commentary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CPU_Table" Relationship="RTRS_BaseModel.FK_Computer_CPU_Table" FromRole="Computer" ToRole="CPU_Table" />
+          <NavigationProperty Name="DataStoreTable" Relationship="RTRS_BaseModel.FK_Computer_DataStoreTable" FromRole="Computer" ToRole="DataStoreTable" />
+          <NavigationProperty Name="Domen" Relationship="RTRS_BaseModel.FK_Computer_Domen" FromRole="Computer" ToRole="Domen" />
+          <NavigationProperty Name="Motherboard_Table" Relationship="RTRS_BaseModel.FK_Computer_Motherboard" FromRole="Computer" ToRole="Motherboard_Table" />
+          <NavigationProperty Name="NIC_Table" Relationship="RTRS_BaseModel.FK_Computer_NIC_Table" FromRole="Computer" ToRole="NIC_Table" />
+          <NavigationProperty Name="Organization" Relationship="RTRS_BaseModel.FK_Computer_Organization" FromRole="Computer" ToRole="Organization" />
+          <NavigationProperty Name="PC_OS" Relationship="RTRS_BaseModel.FK_Computer_PC_OS" FromRole="Computer" ToRole="PC_OS" />
+          <NavigationProperty Name="PC_Type" Relationship="RTRS_BaseModel.FK_Computer_PC_Type1" FromRole="Computer" ToRole="PC_Type" />
+          <NavigationProperty Name="RAM_Table" Relationship="RTRS_BaseModel.FK_Computer_RAM_Table" FromRole="Computer" ToRole="RAM_Table" />
+          <NavigationProperty Name="Stock1" Relationship="RTRS_BaseModel.FK_Computer_Stock" FromRole="Computer" ToRole="Stock" />
+          <NavigationProperty Name="VideoCardTable" Relationship="RTRS_BaseModel.FK_Computer_VideoCardTable" FromRole="Computer" ToRole="VideoCardTable" />
+          <NavigationProperty Name="CPU_Table1" Relationship="RTRS_BaseModel.FK_CPU_Table_Computer" FromRole="Computer" ToRole="CPU_Table" />
+          <NavigationProperty Name="DataStoreTable1" Relationship="RTRS_BaseModel.FK_DataStoreTable_Computer" FromRole="Computer" ToRole="DataStoreTable" />
+          <NavigationProperty Name="Motherboard_Table1" Relationship="RTRS_BaseModel.FK_Motherboard_Table_Computer" FromRole="Computer" ToRole="Motherboard_Table" />
+          <NavigationProperty Name="NIC_Table1" Relationship="RTRS_BaseModel.FK_NIC_Table_Computer" FromRole="Computer" ToRole="NIC_Table" />
+          <NavigationProperty Name="RAM_Table1" Relationship="RTRS_BaseModel.FK_RAM_Table_Computer" FromRole="Computer" ToRole="RAM_Table" />
+          <NavigationProperty Name="VideoCardTable1" Relationship="RTRS_BaseModel.FK_VideoCardTable_Computer" FromRole="Computer" ToRole="VideoCardTable" />
+        </EntityType>
+        <EntityType Name="CPU_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CPU_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Proc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Cores" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MHz" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="ComputerID" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_CPU_Table" FromRole="CPU_Table" ToRole="Computer" />
+          <NavigationProperty Name="Computer1" Relationship="RTRS_BaseModel.FK_CPU_Table_Computer" FromRole="CPU_Table" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="DataStoreTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DSName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Memory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerID" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_DataStoreTable" FromRole="DataStoreTable" ToRole="Computer" />
+          <NavigationProperty Name="Computer1" Relationship="RTRS_BaseModel.FK_DataStoreTable_Computer" FromRole="DataStoreTable" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="Domen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_Domen" FromRole="Domen" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="Motherboard_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mother_Producer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mother_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerID" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_Motherboard" FromRole="Motherboard_Table" ToRole="Computer" />
+          <NavigationProperty Name="Computer1" Relationship="RTRS_BaseModel.FK_Motherboard_Table_Computer" FromRole="Motherboard_Table" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="NIC_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIC_Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NICNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Built_in" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerID" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_NIC_Table" FromRole="NIC_Table" ToRole="Computer" />
+          <NavigationProperty Name="Computer1" Relationship="RTRS_BaseModel.FK_NIC_Table_Computer" FromRole="NIC_Table" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_Organization" FromRole="Organization" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="PC_OS">
+          <Key>
+            <PropertyRef Name="idOs" />
+          </Key>
+          <Property Name="idOs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_PC_OS" FromRole="PC_OS" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="PC_Type">
+          <Key>
+            <PropertyRef Name="int" />
+          </Key>
+          <Property Name="int" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_PC_Type1" FromRole="PC_Type" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="RAM_Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RAM_Memory_MBytes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RAM_Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RAM_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerID" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_RAM_Table" FromRole="RAM_Table" ToRole="Computer" />
+          <NavigationProperty Name="Computer1" Relationship="RTRS_BaseModel.FK_RAM_Table_Computer" FromRole="RAM_Table" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="idStock" />
+          </Key>
+          <Property Name="idStock" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeStock" Type="Int32" />
+          <Property Name="Inventory_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Commentary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_Stock" FromRole="Stock" ToRole="Computer" />
+          <NavigationProperty Name="StockType" Relationship="RTRS_BaseModel.FK_Stock_StockType" FromRole="Stock" ToRole="StockType" />
+        </EntityType>
+        <EntityType Name="StockType">
+          <Key>
+            <PropertyRef Name="idSType" />
+          </Key>
+          <Property Name="idSType" Type="Int32" Nullable="false" />
+          <Property Name="StName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Stock" Relationship="RTRS_BaseModel.FK_Stock_StockType" FromRole="StockType" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VC_Label">
+          <Key>
+            <PropertyRef Name="VCid" />
+          </Key>
+          <Property Name="VCid" Type="Int32" Nullable="false" />
+          <Property Name="VCLabe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VideoCardTable" Relationship="RTRS_BaseModel.FK_VideoCardTable_VC_Label" FromRole="VC_Label" ToRole="VideoCardTable" />
+        </EntityType>
+        <EntityType Name="VideoCardTable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VCModel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Label" Type="Int32" />
+          <Property Name="VCMemory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComputerID" Type="Int32" />
+          <NavigationProperty Name="Computer" Relationship="RTRS_BaseModel.FK_Computer_VideoCardTable" FromRole="VideoCardTable" ToRole="Computer" />
+          <NavigationProperty Name="Computer1" Relationship="RTRS_BaseModel.FK_VideoCardTable_Computer" FromRole="VideoCardTable" ToRole="Computer" />
+          <NavigationProperty Name="VC_Label" Relationship="RTRS_BaseModel.FK_VideoCardTable_VC_Label" FromRole="VideoCardTable" ToRole="VC_Label" />
+        </EntityType>
+        <Association Name="FK_Computer_CPU_Table">
+          <End Type="RTRS_BaseModel.CPU_Table" Role="CPU_Table" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="CPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_DataStoreTable">
+          <End Type="RTRS_BaseModel.DataStoreTable" Role="DataStoreTable" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataStoreTable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="DataStore" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Domen">
+          <End Type="RTRS_BaseModel.Domen" Role="Domen" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Domen">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="idDomen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Motherboard">
+          <End Type="RTRS_BaseModel.Motherboard_Table" Role="Motherboard_Table" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Motherboard_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="Motherboard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_NIC_Table">
+          <End Type="RTRS_BaseModel.NIC_Table" Role="NIC_Table" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIC_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="NIC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Organization">
+          <End Type="RTRS_BaseModel.Organization" Role="Organization" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="idOrganization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_PC_OS">
+          <End Type="RTRS_BaseModel.PC_OS" Role="PC_OS" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PC_OS">
+              <PropertyRef Name="idOs" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="idOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_PC_Type1">
+          <End Type="RTRS_BaseModel.PC_Type" Role="PC_Type" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PC_Type">
+              <PropertyRef Name="int" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="Device_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_RAM_Table">
+          <End Type="RTRS_BaseModel.RAM_Table" Role="RAM_Table" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM_Table">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_Stock">
+          <End Type="RTRS_BaseModel.Stock" Role="Stock" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="idStock" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="Stock" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computer_VideoCardTable">
+          <End Type="RTRS_BaseModel.VideoCardTable" Role="VideoCardTable" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoCardTable">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Computer">
+              <PropertyRef Name="VideoCard" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CPU_Table_Computer">
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.CPU_Table" Role="CPU_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CPU_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataStoreTable_Computer">
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.DataStoreTable" Role="DataStoreTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DataStoreTable">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motherboard_Table_Computer">
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Motherboard_Table" Role="Motherboard_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Motherboard_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NIC_Table_Computer">
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.NIC_Table" Role="NIC_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NIC_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM_Table_Computer">
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.RAM_Table" Role="RAM_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RAM_Table">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoCardTable_Computer">
+          <End Type="RTRS_BaseModel.Computer" Role="Computer" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.VideoCardTable" Role="VideoCardTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VideoCardTable">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_StockType">
+          <End Type="RTRS_BaseModel.StockType" Role="StockType" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.Stock" Role="Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockType">
+              <PropertyRef Name="idSType" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="TypeStock" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoCardTable_VC_Label">
+          <End Type="RTRS_BaseModel.VC_Label" Role="VC_Label" Multiplicity="0..1" />
+          <End Type="RTRS_BaseModel.VideoCardTable" Role="VideoCardTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VC_Label">
+              <PropertyRef Name="VCid" />
+            </Principal>
+            <Dependent Role="VideoCardTable">
+              <PropertyRef Name="Label" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RTRS_BaseModelContainer" CdmEntityContainer="RTRS_BaseEntities">
+          <EntitySetMapping Name="Computer">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.Computer">
+              <MappingFragment StoreEntitySet="Computer">
+                <ScalarProperty Name="Commentary" ColumnName="Commentary" />
+                <ScalarProperty Name="VideoCard" ColumnName="VideoCard" />
+                <ScalarProperty Name="DataStore_Num" ColumnName="DataStore_Num" />
+                <ScalarProperty Name="DataStore" ColumnName="DataStore" />
+                <ScalarProperty Name="Motherboard" ColumnName="Motherboard" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="RUM_Num" ColumnName="RUM_Num" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="CPU" ColumnName="CPU" />
+                <ScalarProperty Name="OPerson" ColumnName="OPerson" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Device_Type" ColumnName="Device_Type" />
+                <ScalarProperty Name="PC_Name" ColumnName="PC_Name" />
+                <ScalarProperty Name="idDomen" ColumnName="idDomen" />
+                <ScalarProperty Name="idOrganization" ColumnName="idOrganization" />
+                <ScalarProperty Name="idOS" ColumnName="idOS" />
+                <ScalarProperty Name="MAC_adress" ColumnName="MAC_adress" />
+                <ScalarProperty Name="IP_adress" ColumnName="IP_adress" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Inventory_number" ColumnName="Inventory_number" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CPU_Table">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.CPU_Table">
+              <MappingFragment StoreEntitySet="CPU_Table">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="MHz" ColumnName="MHz" />
+                <ScalarProperty Name="Num_Cores" ColumnName="Num_Cores" />
+                <ScalarProperty Name="Num_Proc" ColumnName="Num_Proc" />
+                <ScalarProperty Name="CPU_Type" ColumnName="CPU_Type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataStoreTable">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.DataStoreTable">
+              <MappingFragment StoreEntitySet="DataStoreTable">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Memory" ColumnName="Memory" />
+                <ScalarProperty Name="DSName" ColumnName="DSName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Domen">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.Domen">
+              <MappingFragment StoreEntitySet="Domen">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motherboard_Table">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.Motherboard_Table">
+              <MappingFragment StoreEntitySet="Motherboard_Table">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="Mother_Model" ColumnName="Mother_Model" />
+                <ScalarProperty Name="Mother_Producer" ColumnName="Mother_Producer" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NIC_Table">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.NIC_Table">
+              <MappingFragment StoreEntitySet="NIC_Table">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="Built_in" ColumnName="Built_in" />
+                <ScalarProperty Name="NICNum" ColumnName="NICNum" />
+                <ScalarProperty Name="NIC_Model" ColumnName="NIC_Model" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PC_OS">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.PC_OS">
+              <MappingFragment StoreEntitySet="PC_OS">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="idOs" ColumnName="idOs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PC_Type">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.PC_Type">
+              <MappingFragment StoreEntitySet="PC_Type">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="int" ColumnName="int" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAM_Table">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.RAM_Table">
+              <MappingFragment StoreEntitySet="RAM_Table">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="RAM_Amount" ColumnName="RAM_Amount" />
+                <ScalarProperty Name="RAM_Frequency" ColumnName="RAM_Frequency" />
+                <ScalarProperty Name="RAM_Memory_MBytes" ColumnName="RAM_Memory_MBytes" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="Commentary" ColumnName="Commentary" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="OPerson" ColumnName="OPerson" />
+                <ScalarProperty Name="Inventory_number" ColumnName="Inventory_number" />
+                <ScalarProperty Name="TypeStock" ColumnName="TypeStock" />
+                <ScalarProperty Name="idStock" ColumnName="idStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockType">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.StockType">
+              <MappingFragment StoreEntitySet="StockType">
+                <ScalarProperty Name="StName" ColumnName="StName" />
+                <ScalarProperty Name="idSType" ColumnName="idSType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VC_Label">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.VC_Label">
+              <MappingFragment StoreEntitySet="VC_Label">
+                <ScalarProperty Name="VCLabe" ColumnName="VCLabe" />
+                <ScalarProperty Name="VCid" ColumnName="VCid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoCardTable">
+            <EntityTypeMapping TypeName="RTRS_BaseModel.VideoCardTable">
+              <MappingFragment StoreEntitySet="VideoCardTable">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="VCMemory" ColumnName="VCMemory" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="VCModel" ColumnName="VCModel" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
